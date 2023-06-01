@@ -98,43 +98,44 @@ namespace exercicisEnricEx9
                 where art.Codi == codiArticle
                 select art;
 
-            Console.WriteLine("Has seleccionado editar el articulo: ");
+            Console.WriteLine("Has seleccionat editar l'article: ");
            
             try { 
             var articulocoincidente = querycodi.ToList()[0];
          
             string coincidente = articulocoincidente.escribirData();
             Console.WriteLine(coincidente);
-            Console.WriteLine("\nQué quiere editar? \nPara editar el nombre pulse 1. Y para editar" +
-                " el precio pulse 2:");
-            int option = int.Parse(Console.ReadLine());
+            Console.WriteLine("\nQuè vol editar? \nPer editar el nom premi 1. I per editar" +
+                " el preu premi 2:");
+                int option;
+                try { option = int.Parse(Console.ReadLine()); } catch { option = default; }
             switch (option)
             {
                 case 1:
                     string nuevoNombre;
                         int caso;
-                    Console.WriteLine("Introduzca el nuevo Nombre:");
+                    Console.WriteLine("Introdueixi el nou Nom:");
                     nuevoNombre = Console.ReadLine();
-                        Console.WriteLine("¿Estas seguro que quiere editar el artículo? Pulse 1 para Editar \n Pulse 0 para Cancelar");
+                        Console.WriteLine("Estàs segur que vol editar l'article? Premi 1 per Editar \n Premi 0 per Cancel·lar");
                         try { caso = int.Parse(Console.ReadLine()); } catch { caso = default; }
                         switch (caso)
                         {
                             case 1:
                                 articulocoincidente.modificarDescripcio(nuevoNombre);
-                                Console.WriteLine("¡Editado con éxito!");
+                                Console.WriteLine("Editat exitosament!");
                                 break;
                             case 0:
-                                Console.WriteLine("La edición ha sido cancelada.");
+                                Console.WriteLine("La edició ha estat cancel·lada.");
                                 break;
                             default:
-                                Console.WriteLine("No ha introducido ninguna opción válida.");
+                                Console.WriteLine("No ha introduït ninguna opció vàlida.");
                                 break;
                         }
                     
                     break;
                 case 2:
                     float nuevoPrecio;
-                    Console.WriteLine("Introduzca el nuevo Precio:");
+                    Console.WriteLine("Introdueixi el nou Preu:");
                     nuevoPrecio = float.Parse(Console.ReadLine());
                     articulocoincidente.modificarPreu(nuevoPrecio);
                     break;
@@ -144,7 +145,7 @@ namespace exercicisEnricEx9
             }
             Console.WriteLine("Premi qualsevol tecla per tonar al menú principal");
             }
-            catch { Console.WriteLine("No s'ha trobat ningún article amb aquest codi."); }
+            catch { Console.WriteLine("No s'ha trobat cap article amb aquest codi."); }
         }
         static void crearArticleNou(int codi, string descripcio, float preu)
         {
@@ -157,7 +158,7 @@ namespace exercicisEnricEx9
             else
             {
                 Articles.Add(new Article(codi, descripcio, preu));
-                Console.WriteLine("\nL'article s'ha creat correctament.");
+                Console.WriteLine("\nL'article s'ha creat correctament!");
             }
 
 
@@ -197,7 +198,7 @@ namespace exercicisEnricEx9
                     break;
             }
             }
-            catch { Console.WriteLine("No s'ha trobat ningún article amb aquest codi."); }
+            catch { Console.WriteLine("No s'ha trobat cap article amb aquest codi."); }
         }
         static void desarElsCanvisAlFitxer()
         {
@@ -285,8 +286,8 @@ namespace exercicisEnricEx9
                 switch (option)
                 {
                     case 1:
-                        Console.WriteLine("Imprimint la data del doc o Comprovant si el fitxer existeix...\n En cas de que no " +
-                            "existeixi es crearà en cas de que ja existeixi simplement es carregarà el fitxer:\n");
+                        Console.WriteLine("Imprimint les dades del fitxer o Comprovant si el fitxer existeix...\n En cas de que no " +
+                            "existeixi es crearà, i en cas de que ja existeixi simplement es carregarà el fitxer:\n");
                         try
                         {
                             StreamReader ruta = new StreamReader("C:\\DATOS\\ANDREU\\articles.txt");
@@ -309,7 +310,10 @@ namespace exercicisEnricEx9
                         Console.WriteLine("Introdueixi el codi del article que desitja editar:");
                         try { 
                         int codiArticle = int.Parse(Console.ReadLine());
+                            if (codiArticle <0 && codiArticle> 9999) { 
                         editarArticle(codiArticle);
+                            }
+                            else { Console.WriteLine("El codi ha de ser un número enter de entre el 1 fins el 9999"); }
                         }
                         catch { Console.WriteLine("Has d'assegurar-te d'introduir un número enter.\n"); }
                         break;
@@ -330,11 +334,16 @@ namespace exercicisEnricEx9
                     case 4:
                         Console.WriteLine("Esborrant un article existent...");
                         Console.WriteLine("Introdueixi el codi de l'article que desitja esborrar:");
-                        try { 
-                        int codiArticleEsborrar = int.Parse(Console.ReadLine());
-                        esborrarArticle(codiArticleEsborrar);
+                        try
+                        {
+                            int codiArticleEsborrar = int.Parse(Console.ReadLine());
+                            if (codiArticleEsborrar < 0 && codiArticleEsborrar > 9999)
+                            {
+                                esborrarArticle(codiArticleEsborrar);
+                            }
+                            else { Console.WriteLine("Has d'assegurar-te d'introduir un número enter. A part ha de ser un entre el 0 i el 9999 \n"); }
                         }
-                        catch { Console.WriteLine("Has d'assegurar-te d'introduir un número enter.\n"); }
+                        catch { Console.WriteLine("Has d'assegurar-te d'introduir un número enter. A part ha de ser un entre el 0 i el 9999 \n"); }
                         break;
                     case 5:
                         Console.WriteLine("S'estan grabant els nous canvis al fitxer...");
@@ -350,6 +359,7 @@ namespace exercicisEnricEx9
                         break;
                     case 8:
                         Console.WriteLine("Sortint...");
+                        System.Threading.Thread.Sleep(3000);
                         menu = false;
                         break;
                     default:

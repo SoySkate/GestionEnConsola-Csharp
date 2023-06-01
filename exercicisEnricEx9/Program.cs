@@ -359,6 +359,8 @@ namespace exercicisEnricEx9
                         break;
                     case 8:
                         Console.WriteLine("Sortint...");
+                        //Bona opció pero no es nota ja que s' ha de alguna tecla abans.Per el Console.ReadKey()
+                        //d'abaix fora del switch
                         System.Threading.Thread.Sleep(3000);
                         menu = false;
                         break;

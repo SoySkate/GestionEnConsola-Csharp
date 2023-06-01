@@ -1,0 +1,7 @@
+C:\Users\formacio3\source\repos\exercicisEnricEx9\exercicisEnricEx9\bin\Debug\exercicisEnricEx9.exe.config
+C:\Users\formacio3\source\repos\exercicisEnricEx9\exercicisEnricEx9\bin\Debug\exercicisEnricEx9.exe
+C:\Users\formacio3\source\repos\exercicisEnricEx9\exercicisEnricEx9\bin\Debug\exercicisEnricEx9.pdb
+C:\Users\formacio3\source\repos\exercicisEnricEx9\exercicisEnricEx9\obj\Debug\exercicisEnricEx9.csproj.AssemblyReference.cache
+C:\Users\formacio3\source\repos\exercicisEnricEx9\exercicisEnricEx9\obj\Debug\exercicisEnricEx9.csproj.CoreCompileInputs.cache
+C:\Users\formacio3\source\repos\exercicisEnricEx9\exercicisEnricEx9\obj\Debug\exercicisEnricEx9.exe
+C:\Users\formacio3\source\repos\exercicisEnricEx9\exercicisEnricEx9\obj\Debug\exercicisEnricEx9.pdb
